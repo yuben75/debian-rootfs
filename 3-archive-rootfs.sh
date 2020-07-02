@@ -14,7 +14,10 @@ tar_xz_name=$rootfs_dir_utc$TAR_XZ_EXTENSION
 
 cd $build_dir
 tar cfz $tar_gz_name $rootfs_dir_utc
-tar Jcvf $tar_xz_name $rootfs_dir_utc
+cd $rootfs_dir_utc
+tar Jcvf $tar_xz_name ./*
+mv $tar_xz_name ../
+cd ..
 cd - >/dev/null
 
 echo
